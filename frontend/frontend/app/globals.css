@@ -1,26 +1,67 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --nav-blue: #002366; /* deep blue */
+  --nav-width: 240px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff; /* plain white page background */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.layout {
+  display: flex;
+  min-height: 100vh;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Left navigation */
+.side-nav {
+  width: var(--nav-width);
+  background: var(--nav-blue);
+  color: #ffffff;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: width 0.3s ease; /* Transition effect for width */
+}
+
+.side-nav:hover {
+  width: 260px; /* Expand width on hover */
+}
+
+.side-nav .brand {
+  font-weight: 700;
+  font-size: 1.5rem; /* Increased font size for visibility */
+  margin-bottom: 24px; /* Space below the brand */
+  text-align: right; /* Align brand name to the right */
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-nav li {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.side-nav li:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Main white content area */
+.content {
+  flex: 1;
+  background: #ffffff; /* explicitly white */
+  padding: 48px;
+  box-sizing: border-box;
+  color: #0b1a2b;
 }
