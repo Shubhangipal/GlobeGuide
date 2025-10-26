@@ -1,6 +1,7 @@
 :root {
   --nav-blue: #002366; /* deep blue */
-  --nav-width: 240px;
+  --nav-width-collapsed: 64px;
+  --nav-width-expanded: 240px;
 }
 
 html, body {
@@ -12,30 +13,22 @@ html, body {
 .layout {
   display: flex;
   min-height: 100vh;
+  position: relative; /* enable absolute positioning for top-brand */
 }
+
 
 /* Left navigation */
 .side-nav {
-  width: var(--nav-width);
+  width: var(--nav-width-collapsed);
   background: var(--nav-blue);
   color: #ffffff;
-  padding: 24px 16px;
+  padding: 24px 12px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transition: width 0.3s ease; /* Transition effect for width */
+  transition: all 0.3s ease; /* Transition effect for width */
 }
 
 .side-nav:hover {
-  width: 260px; /* Expand width on hover */
-}
-
-.side-nav .brand {
-  font-weight: 700;
-  font-size: 1.5rem; /* Increased font size for visibility */
-  margin-bottom: 24px; /* Space below the brand */
-  text-align: right; /* Align brand name to the right */
+  width: var(--nav-width-expanded);
 }
 
 .side-nav ul {
@@ -49,19 +42,49 @@ html, body {
 
 .side-nav li {
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 12px;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.side-nav li i {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.side-nav li .nav-text {
+  margin-left: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.side-nav:hover .nav-text {
+  opacity: 1;
 }
 
 .side-nav li:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.06);
 }
 
-/* Main white content area */
+/* Adjust main content to accommodate collapsed nav */
 .content {
+  margin-left: var(--nav-width-collapsed);
   flex: 1;
-  background: #ffffff; /* explicitly white */
   padding: 48px;
-  box-sizing: border-box;
+  background: #ffffff; /* explicitly white */
   color: #0b1a2b;
+}
+
+/* Top-right brand */
+.top-brand {
+  position: absolute; /* Position it relative to the layout */
+  top: 16px; /* Distance from the top */
+  right: 24px; /* Distance from the right */
+  color: var(--nav-blue); /* Deep blue color */
+  font-weight: 700;
+  font-size: 1.25rem;
+  z-index: 60; /* Ensure it stays above other elements */
 }
