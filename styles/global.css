@@ -1,3 +1,25 @@
+/* global.css */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set default font and background for the entire app */
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Default text color */
+    height: 100%;
+}
+
+/* Ensure the Next.js root element spans the full height */
+#__next {
+    height: 100%;
+}
+
 :root {
     --nav-blue: #002366; /* Deep blue */
     --nav-width-collapsed: 64px;
@@ -73,7 +95,7 @@
 }
 
 .side-nav li:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: #ffffff;
 }
 
 /* Main white content area */
