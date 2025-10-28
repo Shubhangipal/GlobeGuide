@@ -93,3 +93,18 @@ html, body {
     box-sizing: border-box;
     color: #0b1a2b;
 }
+/* Banner slider styles */
+.banner-slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
